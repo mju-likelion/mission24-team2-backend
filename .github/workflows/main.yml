@@ -33,9 +33,9 @@ jobs:
         shell: bash
       
       - name: go back
-        run: cd ..
+        run: pwd
         shell: bash
-        
+
       - name: Build with Gradle
         run: ./gradlew build
         shell: bash
