@@ -29,15 +29,15 @@ jobs:
         with:
           java-version: 11
 
-      - name: Look for gradlew
-        run: find / -type f -name "gradlew"
+      # - name: Look for gradlew
+      #   run: find / -type f -name "gradlew"
       
       - name: Grant execute permission for gradlew
-        run: chmod +x gradlew
+        run: chmod +x gradle
         shell: bash
 
       - name: Build with Gradle
-        run: gradlew build
+        run: gradle build
         shell: bash
         
       - name: Make Zip File
