@@ -52,5 +52,5 @@ const lectureSchema = new mongoose.Schema(
   }
 );
 
-const LectureSchema = mongoose.model("lectures", lectureSchema); //모델 이름이 Clients임을 선언함
-export default LectureSchema;
+const Lecture = mongoose.model("lectures", lectureSchema); //모델 이름이 Clients임을 선언함
+export default Lecture;
