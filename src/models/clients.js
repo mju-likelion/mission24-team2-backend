@@ -24,7 +24,7 @@ const clientSchema = new mongoose.Schema(
       required: true,
     },
 
-    // 프로필 이미지
+    // 닉네임
     nickname: {
       type: String,
       trim: true,

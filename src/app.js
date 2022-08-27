@@ -1,7 +1,6 @@
 import express from "express";
 import cors from "cors";
 import mongoose from "mongoose";
-import client from "./route/client"; 
 import dotenv from "dotenv";
 
 const app = express();
@@ -17,7 +16,11 @@ app.use(express.json());
 dotenv.config();
 
 //로그인 회원가입 기능
+import client from "./route/client"; 
 app.use("/client", client);
+
+import lecture from "./route/lecture";
+app.use("/lecture", lecture);
 
 app.use((err, req, res, next) => {
   console.log(err);
