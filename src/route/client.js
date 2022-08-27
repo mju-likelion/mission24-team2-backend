@@ -10,7 +10,7 @@ import APIError from "../util/apiError";
 import errors from "../util/errors";
 
 import jwt from "jsonwebtoken";
-import { verifyToken } from "../middleware/verifyTK";
+import { verifyToken } from "../middleware/verifyToken";
 
 const router = Router();
 
