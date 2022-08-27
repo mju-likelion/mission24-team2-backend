@@ -76,6 +76,28 @@ router.post(
     verifyToken,
     asyncWrapper(createReview)
 );
+
+//수강평 조회하기
+
+const getReview = async (req, res) => {
+    const { reviewId } = req.query;    
+    const reviewInfo = await Review.findById(reviewId);
+    if(!reviewInfo) {
+        throw new APIError(
+            errors.REVIEW_NOT_EXISTS.statusCode,
+            errors.REVIEW_NOT_EXISTS.errorCode,
+            errors.REVIEW_NOT_EXISTS.errorMsg
+        );
+    }
+    res.status(httpStatus.OK).json(reviewInfo);
+}
+router.get(
+    "/",
+    query("reviewId").not().isEmpty(),
+    validation,
+    verifyToken,
+    asyncWrapper(getReview)
+);
 //수강평 좋아요 누르기
 //수강평 다음 버튼 누르기
 //수강평 이전 버튼 누르기

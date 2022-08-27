@@ -15,7 +15,11 @@ const errors = {
     statusCode: 400,
     errorMsg: "INVALID ERROR",
   },
-
+  REVIEW_NOT_EXISTS: {
+    errorCode: "REVIEW_NOT_EXISTS",
+    statusCode: 404,
+    errorMsg: "REVIEW_NOT_EXISTS ERROR",
+  },
   LECTURE_NOT_EXISTS: {
     errorCode: "LECTURE_NOT_EXISTS",
     statusCode: 404,

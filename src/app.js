@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import dotenv from "dotenv";
 
 const app = express();
-const PORT = 3000;
+const PORT = 800;
 
 mongoose.connect('mongodb+srv://mju:mju0987@cluster0.xwm1ep0.mongodb.net/?retryWrites=true&w=majority')
     .then(()=> console.log('MongoDB Connected...'))
