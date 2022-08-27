@@ -22,6 +22,9 @@ app.use("/client", client);
 import lecture from "./route/lecture";
 app.use("/lecture", lecture);
 
+import review from "./route/review";
+app.use("/review", review);
+
 app.use((err, req, res, next) => {
   console.log(err);
   res.status(err.statusCode || 500).send(err);

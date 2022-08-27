@@ -16,10 +16,16 @@ const errors = {
     errorMsg: "INVALID ERROR",
   },
 
-  ALREADY_FRIEND: {
-    errorCode: "ALREADY_FRIEND",
-    statusCode: 400,
-    errorMsg: "이미 친구입니다.",
+  LECTURE_NOT_EXISTS: {
+    errorCode: "LECTURE_NOT_EXISTS",
+    statusCode: 404,
+    errorMsg: "강좌가 존재하지 않습니다.",
+  },
+
+  TRAINER_NOT_EXISTS: {
+    errorCode: "TRAINER_NOT_EXISTS",
+    statusCode: 404,
+    errorMsg: "해당 강사가 존재하지 않습니다.",
   },
 
   ALREADY_NOT_FRIEND: {

@@ -72,7 +72,7 @@ const router = Router();
 };
   
 router.post(
-    "/register",
+    "/",
   
     body("email").not().isEmpty(),
     body("password").not().isEmpty(),
