@@ -107,6 +107,8 @@ const showreviews = async (req, res) => {
         individualInfo.courseName = lectureInfo.courseName;
         individualInfo.category = lectureInfo.category;
         individualInfo.stared= review.stared;
+        individualInfo.id= review.lectureId;
+        individualInfo.agency=lectureInfo.agency;
         individualInfo.content = review.content;
         sorted.push(individualInfo);
     }
