@@ -1,16 +1,30 @@
 import express from "express";
 import cors from "cors";
+import mongoose from "mongoose";
+import client from "./route/client"; 
+import dotenv from "dotenv";
 
 const app = express();
 const PORT = 3000;
-app.use(cors());
 
+mongoose.connect('mongodb+srv://mju:mju0987@cluster0.xwm1ep0.mongodb.net/?retryWrites=true&w=majority')
+    .then(()=> console.log('MongoDB Connected...'))
+    .catch(err => console.log(err))
+
+app.use(cors());
+app.use(express.json());
+
+dotenv.config();
+
+//로그인 회원가입 기능
+app.use("/client", client);
+
+app.use((err, req, res, next) => {
+  console.log(err);
+  res.status(err.statusCode || 500).send(err);
+});
+  
 app.listen(PORT, () => {
     console.log(`Server open at ${PORT}`);
-  });
-
-app.get('/', (req,res) => {
-    res.send("안녕");
-})
-  
+});  
 export default app;
