@@ -97,8 +97,20 @@ router.get(
 
 //최근 수강평이 등록된 순서대로 강좌를 정렬하여 리턴.
 const showreviews = async (req, res) => {
-    const sortedReviews = await Review.find().sort({updatedAt:1});
-    res.json(sortedReviews);
+    const sortedReviews = await Review.find().sort({updatedAt:-1});
+    let sorted=[];
+    for(let review of sortedReviews) {
+        let individualInfo = {};
+        //강좌 스키마에서 강사 이름, 강좌명, 과목. 강의평 스키마에서 별점, 내용 정보를받아 하나의 Json생성.
+        const lectureInfo = await Lecture.findById(review.lectureId);
+        individualInfo.trainerName = lectureInfo.trainerName;
+        individualInfo.courseName = lectureInfo.courseName;
+        individualInfo.category = lectureInfo.category;
+        individualInfo.stared= review.stared;
+        individualInfo.content = review.content;
+        sorted.push(individualInfo);
+    }
+    res.status(httpStatus.OK).json(sorted);
 }
 router.get("/",verifyToken,asyncWrapper(showreviews));
 export default router;

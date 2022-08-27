@@ -43,7 +43,7 @@ const router = Router();
 
 const createReview = async (req, res) => {
     const { lectureId, subject, stared, content } = req.body;
-    const author = res.locals.client.name;
+    const author = res.locals.client.nickname;
     
     const lectureInfo = await Lecture.findById(lectureId);
     if(!lectureInfo) {
