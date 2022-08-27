@@ -18,12 +18,6 @@ const clientSchema = new mongoose.Schema(
       required: true,
     },
 
-    // 이름
-    name: {
-      type: String,
-      required: true,
-    },
-
     // 닉네임
     nickname: {
       type: String,

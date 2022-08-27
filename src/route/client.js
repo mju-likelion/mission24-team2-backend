@@ -25,7 +25,7 @@ const router = Router();
  * @param {Response} res
  */
  const postClient = async (req, res) => {
-    const { email, password, name, nickname } = req.body;
+    const { email, password, nickname } = req.body;
   
     // 이메일이 존재하는지 확인
     if (await Client.exists({ email })) {
@@ -58,7 +58,6 @@ const router = Router();
   
     const client = new Client();
     client.email = email;
-    client.name = name;
     client.password = hashedPassword;
     client.nickname = nickname;
     //body에서 받아온 고객 정보를 데이터베이스에 저장.
@@ -76,7 +75,6 @@ router.post(
   
     body("email").not().isEmpty(),
     body("password").not().isEmpty(),
-    body("name").not().isEmpty(),
     body("nickname").not().isEmpty(),
     validation,
   

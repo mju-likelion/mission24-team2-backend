@@ -11,7 +11,7 @@ import mongoose, { Mongoose, Types } from "mongoose";
 import { verifyToken } from "../middleware/verifyToken";
 import Lecture from "../models/lectures";
 import Client from "../models/clients";
-
+import Review from "../models/reviews";
 const router = Router();
 
 /**
@@ -96,6 +96,9 @@ router.get(
 );
 
 //최근 수강평이 등록된 순서대로 강좌를 정렬하여 리턴.
-
-
+const showreviews = async (req, res) => {
+    const sortedReviews = await Review.find().sort({updatedAt:1});
+    res.json(sortedReviews);
+}
+router.get("/",verifyToken,asyncWrapper(showreviews));
 export default router;
